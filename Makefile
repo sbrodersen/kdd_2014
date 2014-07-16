@@ -3,8 +3,8 @@ SOURCES=$(DATADIR)essays.csv.gz $(DATADIR)projects.csv.gz $(DATADIR)outcomes.csv
 DATADIR=data/
 MODELDIR=models/
 SUBMITDIR=predictions/
-TRAIN=$(DATADIR)train3.csv
-TEST=$(DATADIR)wanted3.csv
+TRAIN=$(DATADIR)train_5.csv
+TEST=$(DATADIR)wanted_5.csv
 TRAINVW=$(TRAIN:.csv=.vw)
 TESTVW=$(TEST:.csv=.vw)
 DEFAULTNAME=a
@@ -21,11 +21,8 @@ readme:
 all: all_uncompressed $(SUBMITDIR)$(DIR)$(DEFAULTNAME).csv.gz
 all_uncompressed: $(MODELDIR)$(DIR)$(DEFAULTNAME).dat $(SUBMITDIR)$(DIR)$(DEFAULTNAME).txt $(SUBMITDIR)$(DIR)$(DEFAULTNAME).csv
 
-$(TRAIN): $(SOURCES)
-	python multicsv2csv.py 
-
-$(TEST): $(SOURCES)
-	python multicsv2csv.py 
+$(DATADIR)train_%.csv:
+	python multicsv2csv.py $@
 	
 $(DATADIR)%.vw: $(DATADIR)%.csv
 	python csv2vw.py $< $@
