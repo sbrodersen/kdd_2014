@@ -23,13 +23,14 @@ def clean(s):
     except:
         return " ".join(re.findall(r'\w+', "no_text",flags = re.UNICODE | re.LOCALE)).lower()
 
+data_path = 'data/'
 
 ###################################################################
 ### read
-projects = pd.read_csv('projects.csv.gz', compression='gzip', index_col='projectid', encoding='utf-8')
-essays = pd.read_csv('essays.csv.gz', compression='gzip', index_col='projectid', encoding='utf-8')
-outcomes = pd.read_csv('outcomes.csv.gz', compression='gzip', index_col='projectid', encoding='utf-8')
-resources = pd.read_csv('resources.csv.gz', compression='gzip', index_col='projectid', encoding='utf-8')
+projects = pd.read_csv(data_path+'projects.csv.gz', compression='gzip', index_col='projectid', encoding='utf-8')
+essays = pd.read_csv(data_path+'essays.csv.gz', compression='gzip', index_col='projectid', encoding='utf-8')
+outcomes = pd.read_csv(data_path+'outcomes.csv.gz', compression='gzip', index_col='projectid', encoding='utf-8')
+resources = pd.read_csv(data_path+'resources.csv.gz', compression='gzip', index_col='projectid', encoding='utf-8')
 projects = projects.sort_index(axis=0)
 essays = essays.sort_index(axis=0)
 outcomes = outcomes.sort_index(axis=0)
@@ -129,5 +130,5 @@ print >> sys.stderr, train.columns
 #wanted=wanted.fillna(0)
 #train=train.fillna(0)
 
-train.to_csv('train3.csv')
-wanted.to_csv('wanted3.csv')
+train.to_csv(data_path+'train3.csv')
+wanted.to_csv(data_path+'wanted3.csv')
