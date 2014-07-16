@@ -15,11 +15,9 @@ def main(argv):
     print headerline
     for line in sys.stdin.readlines():
         row = line.strip().split(" ")
-        print "%s,%f"%(row[1],zygmoid(float(row[0])))
+        print "%s,%f"%(row[1],sigmoid(float(row[0])))
 
-def zygmoid(x):
-    #I know it's a common Sigmoid feature, but that's why I probably found
-    #it on FastML too: https://github.com/zygmuntz/kaggle-stackoverflow/blob/master/sigmoid_mc.py
+def sigmoid(x):
     return 1 / (1 + math.exp(-x))
 
 
