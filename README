@@ -3,7 +3,7 @@
 use make to achieve your goals
 ================================
 
->> less Makefile
+see: less Makefile
 
 
 examples:
@@ -23,3 +23,4 @@ to train and generate standard submit file (--> predictions/current/a.csv):
 	
 	
 if you know your data/xy.vw data is there execute do your vw commands and come back to generate the submit file from your model.
+change variables according to your environment.
