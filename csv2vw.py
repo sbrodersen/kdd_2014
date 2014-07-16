@@ -7,7 +7,7 @@ author: sonja brodersen sonja.brodersen@gmail.com
  
 convert from kdd train.csv/wanted.csv to train.vw/wanted.vw
 
-usage: python next_try2vw <infile> <outfile>
+usage: python csv2vw.py <infile> <outfile>
 
 List of fields:
 NS   INDEX   NAME
@@ -71,7 +71,7 @@ def main(argv):
     output_file = sys.argv[2]
     
     if input_file == '' or output_file == '':
-        print >> sys.stderr, 'usage: python next_try2vw <infile> <outfile>'
+        print >> sys.stderr, 'usage: python csv2vw.py <infile> <outfile>'
         sys.exit(2)
     
     reader = csv.reader( open( input_file ))
