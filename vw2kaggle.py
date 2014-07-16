@@ -5,12 +5,10 @@ http://www.kaggle.com/c/kdd-cup-2014-predicting-excitement-at-donors-choose/
 
 author: sonja brodersen sonja.brodersen@gmail.com
  
-usage: cat infile | python vw2kaggle > outfile
+usage: python vw2kaggle < infile > outfile
 '''
 import math
-import sys, getopt
-
-print >> sys.stderr, __doc__
+import sys
 
 def main(argv):
     headerline = "projectid,is_exciting"
